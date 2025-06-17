@@ -50,15 +50,15 @@ export default function ExplorePage() {
                 </Typography>
                 <div className="space-y-4">
                   <Typography variant="body" className="text-gray-600 dark:text-gray-300">
-                    San Pedro, located on Ambergris Caye, is Belize's premier island destination. 
+                    San Pedro, located on Ambergris Caye, is Belize&apos;s premier island destination. 
                     Known for its laid-back Caribbean vibe, world-class diving, and warm, 
                     welcoming locals, this tropical paradise offers the perfect blend of 
                     adventure and relaxation.
                   </Typography>
                   <Typography variant="body" className="text-gray-600 dark:text-gray-300">
-                    From the moment you step off the plane, you'll be captivated by the 
+                    From the moment you step off the plane, you&apos;ll be captivated by the 
                     crystal-clear waters, vibrant coral reefs, and the infectious energy 
-                    of island life. Whether you're seeking underwater adventures, cultural 
+                    of island life. Whether you&apos;re seeking underwater adventures, cultural 
                     experiences, or simply a place to unwind, San Pedro has it all.
                   </Typography>
                 </div>
@@ -147,8 +147,8 @@ export default function ExplorePage() {
                   Local Flavors
                 </Typography>
                 <Typography variant="body" className="text-gray-600 dark:text-gray-300">
-                  Don't miss the fresh conch fritters, lobster tail, and local Belikin beer. 
-                  Ask locals for their favorite "hole-in-the-wall" spots.
+                  Don&apos;t miss the fresh conch fritters, lobster tail, and local Belikin beer. 
+                  Ask locals for their favorite &ldquo;hole-in-the-wall&rdquo; spots.
                 </Typography>
               </div>
             </div>

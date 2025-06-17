@@ -319,7 +319,7 @@ export default function LovejoyPage() {
                     <div>
                       <Typography variant="h4" className="font-medium mb-1 text-gray-900 dark:text-white">Entire home</Typography>
                       <Typography variant="body" className="text-gray-600 dark:text-gray-400">
-                        You'll have the luxury villa to yourself.
+                        You&apos;ll have the luxury villa to yourself.
                       </Typography>
                     </div>
                   </div>
@@ -360,13 +360,13 @@ export default function LovejoyPage() {
                     </p>
                     <p>
                       There are developments in Mahogany Bay, therefore rates are auto adjusted. Guests do not have 
-                      access to the Hilton's Resort private beach club, gym nor the pool. However, we have our very 
+                      access to the Hilton&apos;s Resort private beach club, gym nor the pool. However, we have our very 
                       own POOLCLUB with a restaurant and bar. You simply show our key chain, and you will get an 
                       exclusive 10% discount.
                     </p>
                     <p className="text-amber-600 dark:text-amber-400">
                       <strong>Please note:</strong> Ambergris Caye may have power outages during busy times. 
-                      They're short but may happen during your stay. Thanks for understanding!
+                      They&apos;re short but may happen during your stay. Thanks for understanding!
                     </p>
                   </div>
                 </div>
@@ -395,7 +395,7 @@ export default function LovejoyPage() {
 
                 {/* Location */}
                 <div className="pb-6 border-b border-gray-200 dark:border-gray-700">
-                  <Typography variant="h3" className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Where you'll be</Typography>
+                  <Typography variant="h3" className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Where you&apos;ll be</Typography>
                   <div className="rounded-lg overflow-hidden mb-4">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.8!2d-87.9654!3d17.9186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f0bce0000000000%3A0x0!2sSea%20Grape%20Drive%2C%20San%20Pedro%2C%20Belize!5e0!3m2!1sen!2sus!4v1635000000000!5m2!1sen!2sus"
@@ -411,7 +411,7 @@ export default function LovejoyPage() {
                   <Typography variant="h4" className="font-medium mb-2 text-gray-900 dark:text-white">Sea Grape Drive, San Pedro, Belize</Typography>
                   <Typography variant="body" className="text-gray-600 dark:text-gray-400">
                     Located in the exclusive gated community of Mahogany Bay Village, just steps from pristine beaches 
-                    and San Pedro's vibrant town center.
+                    and San Pedro&apos;s vibrant town center.
                   </Typography>
                 </div>
 
@@ -453,7 +453,7 @@ export default function LovejoyPage() {
                         </div>
                       </div>
                       <Typography variant="body" className="text-sm text-gray-600 dark:text-gray-400">
-                        "The Lovejoy exceeded all expectations. Absolutely stunning villa with perfect location."
+                        &ldquo;The Lovejoy exceeded all expectations. Absolutely stunning villa with perfect location.&rdquo;
                       </Typography>
                     </div>
                     
@@ -468,7 +468,7 @@ export default function LovejoyPage() {
                         </div>
                       </div>
                       <Typography variant="body" className="text-sm text-gray-600 dark:text-gray-400">
-                        "Third year returning. The luxury amenities and incredible hospitality make it perfect."
+                        &ldquo;Third year returning. The luxury amenities and incredible hospitality make it perfect.&rdquo;
                       </Typography>
                     </div>
                   </div>
@@ -543,7 +543,7 @@ export default function LovejoyPage() {
                       <Typography variant="h4" className="text-sm font-medium text-gray-900 dark:text-white">This is a rare find</Typography>
                     </div>
                     <Typography variant="body" className="text-sm text-gray-600 dark:text-gray-400">
-                      This host's place is usually booked 89% of the time.
+                      This host&apos;s place is usually booked 89% of the time.
                     </Typography>
                   </div>
                 </div>

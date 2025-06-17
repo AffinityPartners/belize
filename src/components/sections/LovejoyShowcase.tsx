@@ -256,7 +256,7 @@ export function LovejoyShowcase() {
                   and step directly onto pristine beaches from your exclusive retreat.
                 </Typography>
                 <Typography variant="body" className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Located within the prestigious Mahogany Bay Village, you'll enjoy world-class 
+                  Located within the prestigious Mahogany Bay Village, you&apos;ll enjoy world-class 
                   security, impeccable maintenance, and access to the private beach club. 
                   Every detail has been curated to exceed the expectations of the most 
                   discerning travelers.

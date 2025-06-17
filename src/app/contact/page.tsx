@@ -15,11 +15,11 @@ export default function ContactPage() {
           <Container size="lg">
             <div className="text-center max-w-4xl mx-auto">
               <Typography variant="h1" className="mb-6">
-                Let's Plan Your Perfect Trip
+                Let&apos;s Plan Your Perfect Trip
               </Typography>
               <Typography variant="body" className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-                Whether you're booking The Lovejoy, planning activities, or need local recommendations, 
-                we're here to help make your San Pedro experience unforgettable.
+                Whether you&apos;re booking The Lovejoy, planning activities, or need local recommendations, 
+                we&apos;re here to help make your San Pedro experience unforgettable.
               </Typography>
             </div>
           </Container>
@@ -106,7 +106,7 @@ export default function ContactPage() {
 
                 <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
                   <Typography variant="h4" className="mb-3">
-                    What's the best time to visit?
+                    What&apos;s the best time to visit?
                   </Typography>
                   <Typography variant="body" className="text-gray-600 dark:text-gray-300">
                     December through April offers dry weather and calm seas. May through November 
@@ -120,7 +120,7 @@ export default function ContactPage() {
                   </Typography>
                   <Typography variant="body" className="text-gray-600 dark:text-gray-300">
                     No! Golf carts are the main transportation on the island. We include one 
-                    with your stay at The Lovejoy, and they're easy to rent elsewhere too.
+                    with your stay at The Lovejoy, and they&apos;re easy to rent elsewhere too.
                   </Typography>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
                   <Typography variant="h4" className="mb-3">
-                    What's included with The Lovejoy?
+                    What&apos;s included with The Lovejoy?
                   </Typography>
                   <Typography variant="body" className="text-gray-600 dark:text-gray-300">
                     Private pool, golf cart, fully equipped kitchen, premium linens, WiFi, 
@@ -165,7 +165,7 @@ export default function ContactPage() {
           <Container size="lg">
             <div className="text-center">
               <Typography variant="h3" className="mb-8">
-                Need Help While You're Here?
+                Need Help While You&apos;re Here?
               </Typography>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center">
