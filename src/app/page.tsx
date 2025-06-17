@@ -1,113 +1,263 @@
-import Image from "next/image";
+import Image from 'next/image'
+import { Button } from '@/components/ui/Button'
+import { Container } from '@/components/layout/Container'
+import { Typography } from '@/components/ui/Typography'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <Header />
+      <main className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/belize-beach-dsb.jpg"
+            alt="Beautiful San Pedro beach scene with palm trees, golf carts, and boats in Belize"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center scale-105 transition-transform duration-[10s] ease-out hover:scale-100"
+            quality={90}
+          />
+          {/* Modern gradient overlays for depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-transparent to-secondary-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        {/* Content */}
+        <Container size="lg" className="relative z-10">
+          <div className="text-center max-w-5xl mx-auto py-20">
+            {/* Logo with glass effect */}
+            <div className="mb-12 flex justify-center">
+              <div className="relative w-32 h-32 md:w-48 md:h-48 p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
+                <Image
+                  src="/images/DSBelizen-Logo-retina.png"
+                  alt="Don't Stop Belizen Logo"
+                  fill
+                  className="object-contain drop-shadow-2xl p-4"
+                  priority
+                />
+              </div>
+            </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+            <Typography 
+              variant="h1" 
+              serif={true}
+              className="mb-6 text-white drop-shadow-lg"
+              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
+            >
+              Don&apos;t Stop Belizen
+            </Typography>
+            
+            <Typography 
+              variant="body" 
+              className="mb-8 text-xl text-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+            >
+              Experience the vibrant lifestyle, culture, and adventure opportunities in San Pedro, Belize. 
+              From snorkeling in the Blue Hole to beachside dining, discover paradise through local eyes.
+            </Typography>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button 
+                variant="gradient"
+                size="lg" 
+                asChild
+              >
+                <a href="/explore">Explore San Pedro</a>
+              </Button>
+              <Button 
+                variant="glass" 
+                size="lg"
+                asChild
+              >
+                <a href="/lovejoy">View The Lovejoy</a>
+              </Button>
+            </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+          </div>
+        </Container>
+      </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {/* Features Section */}
+      <section className="py-20 px-4">
+        <Container size="lg">
+          <div className="text-center mb-16">
+            <Typography variant="h2" className="mb-4">
+              Your Gateway to Paradise
+            </Typography>
+            <Typography variant="body" className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Discover authentic experiences and luxury accommodations that showcase 
+              the best of San Pedro, Belize.
+            </Typography>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Destination Discovery */}
+            <div className="group p-8 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-2xl hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:-translate-y-1">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900 dark:to-primary-800 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-3xl">🏝️</span>
+              </div>
+              <Typography variant="h4" className="mb-4">
+                Destination Discovery
+              </Typography>
+              <Typography variant="body" className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                Insider recommendations, stunning visuals, and curated guides on what to do, 
+                where to eat, and how to explore San Pedro.
+              </Typography>
+            </div>
+
+            {/* The Lovejoy */}
+            <div className="group p-8 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-2xl hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:-translate-y-1">
+              <div className="w-16 h-16 bg-gradient-to-br from-secondary-100 to-secondary-200 dark:from-secondary-900 dark:to-secondary-800 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-3xl">🏖️</span>
+              </div>
+              <Typography variant="h4" className="mb-4">
+                The Lovejoy
+              </Typography>
+              <Typography variant="body" className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                A premium beachfront property offering guests a luxurious, 
+                relaxing home base to enjoy everything Belize has to offer.
+              </Typography>
+            </div>
+
+            {/* Local Experience */}
+            <div className="group p-8 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-2xl hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:-translate-y-1">
+              <div className="w-16 h-16 bg-gradient-to-br from-warning-100 to-warning-200 dark:from-warning-900 dark:to-warning-800 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-3xl">🤿</span>
+              </div>
+              <Typography variant="h4" className="mb-4">
+                Authentic Adventures
+              </Typography>
+              <Typography variant="body" className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                From snorkeling in the Blue Hole to enjoying beachside tacos, 
+                experience San Pedro through the eyes of someone who truly loves it.
+              </Typography>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Design System Demo */}
+      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+        <Container size="lg">
+          <div className="text-center mb-16">
+            <Typography variant="h2" className="mb-4">
+              Design System Preview
+            </Typography>
+            <Typography variant="body" className="text-gray-600 dark:text-gray-300">
+              Showcasing our beautiful color palette and components
+            </Typography>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {/* Color Swatches */}
+            <div className="space-y-3">
+              <Typography variant="label">Brand Colors</Typography>
+              <div className="space-y-2">
+                <div className="h-12 bg-primary-500 rounded-lg flex items-center justify-center text-white font-medium">
+                  Primary
+                </div>
+                <div className="h-12 bg-secondary-500 rounded-lg flex items-center justify-center text-white font-medium">
+                  Secondary
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <Typography variant="label">Semantic Colors</Typography>
+              <div className="space-y-2">
+                <div className="h-12 bg-success-500 rounded-lg flex items-center justify-center text-white font-medium">
+                  Success
+                </div>
+                <div className="h-12 bg-warning-500 rounded-lg flex items-center justify-center text-white font-medium">
+                  Warning
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <Typography variant="label">Button Variants</Typography>
+              <div className="space-y-2">
+                <Button className="w-full">Primary</Button>
+                <Button variant="outline" className="w-full">Outline</Button>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <Typography variant="label">More Variants</Typography>
+              <div className="space-y-2">
+                <Button variant="secondary" className="w-full">Secondary</Button>
+                <Button variant="ghost" className="w-full">Ghost</Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Typography variant="caption" className="text-gray-500">
+              Built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion
+            </Typography>
+          </div>
+        </Container>
+      </section>
+
+      {/* RSS Feed Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Typography variant="h2" className="mb-4">
+              What&apos;s Happening in San Pedro
+            </Typography>
+            <Typography variant="body" className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Stay up to date with the latest news, events, and happenings in beautiful San Pedro, Belize.
+            </Typography>
+          </div>
+          
+          <div className="w-full">
+            <div className="rss-feed-custom-wrapper">
+              <div className="commonninja_component pid-7a02d2a6-3c84-4eb2-b9e5-4e1da7a50068"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-24 bg-gradient-to-br from-primary-50 via-secondary-50 to-primary-100 dark:from-primary-900/20 dark:via-secondary-900/20 dark:to-primary-800/20 relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-primary-500 rounded-full blur-xl"></div>
+          <div className="absolute bottom-10 right-10 w-32 h-32 bg-secondary-500 rounded-full blur-xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-warning-500 rounded-full blur-2xl"></div>
+        </div>
+        
+        <Container size="lg" className="relative z-10">
+          <div className="text-center">
+            <Typography variant="h2" className="mb-8 bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+              Ready to Experience Paradise?
+            </Typography>
+            <Typography variant="body" className="text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-10 text-lg leading-relaxed">
+              From the moment you arrive, San Pedro will capture your heart with its crystal-clear waters, 
+              vibrant culture, and endless opportunities for adventure.
+            </Typography>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button variant="gradient" size="lg" asChild>
+                <a href="/lovejoy">Book The Lovejoy</a>
+              </Button>
+              <Button variant="glass" size="lg" asChild>
+                <a href="/contact">Plan Your Trip</a>
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </section>
     </main>
-  );
+    <Footer />
+  </>
+  )
 }

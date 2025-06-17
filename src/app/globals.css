@@ -2,32 +2,514 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 207 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 250 29% 53%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 207 100% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 207 100% 50%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 250 29% 53%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 207 100% 50%;
+  }
+
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Modern focus styles */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Remove default focus styles */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Improved text rendering */
+  h1, h2, h3, h4, h5, h6 {
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Better font smoothing */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--foreground));
+  }
+
+  /* Selection styles */
+  ::selection {
+    background: hsl(var(--primary) / 0.2);
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* Loading states */
+  .loading {
+    @apply animate-pulse;
+  }
+
+  /* Glass morphism utility */
+  .glass {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* RSS Feed Styling - Aggressive overrides */
+  .rss-feed-custom-wrapper .commonninja_component,
+  .commonninja_component {
+    font-family: var(--font-inter) !important;
+  }
+
+  /* Force override all inline styles */
+  .rss-feed-custom-wrapper .commonninja_component *,
+  .commonninja_component * {
+    font-family: var(--font-inter) !important;
+  }
+
+  /* Ultra-specific overrides for inline styles */
+  .rss-feed-custom-wrapper [style*="border-color"],
+  .rss-feed-custom-wrapper [style*="color: rgb(0, 0, 0)"],
+  .rss-feed-custom-wrapper [style*="width: 25%"] {
+    border-color: rgba(229, 231, 235, 0.5) !important;
+    color: #1f2937 !important;
+    width: 100% !important;
+  }
+
+  .dark .rss-feed-custom-wrapper [style*="color: rgb(0, 0, 0)"] {
+    color: #f9fafb !important;
+  }
+
+  /* Force the RSS feed to use full available space */
+  .rss-feed-custom-wrapper {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* Main RSS Feed Wrapper */
+  .rss-feed-custom-wrapper .feed-wrapper,
+  .commonninja_component .feed-wrapper,
+  .rss-feed-custom-wrapper .sc-gfoqjT.kiBmag.feed-wrapper,
+  .rss-feed-custom-wrapper [style*="height: 600px"],
+  .rss-feed-custom-wrapper [style*="width: 1280px"] {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: auto !important;
+  }
+
+  /* Feed Content Wrapper - Make it responsive grid */
+  .rss-feed-custom-wrapper .feed-content-wrapper.flow-layout,
+  .commonninja_component .feed-content-wrapper.flow-layout {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1.5rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Override the fixed width columns with attribute selector */
+  .rss-feed-custom-wrapper .feed-content-column[style*="width: 25%"],
+  .rss-feed-custom-wrapper .feed-content-column,
+  .commonninja_component .feed-content-column {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* RSS Feed Articles/Items - Multiple selectors for higher specificity */
+  .commonninja_component .feed-content-item,
+  .commonninja_component .sc-eyvILC.foKEno.feed-content-item,
+  .commonninja_component article.feed-content-item {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(229, 231, 235, 0.5) !important;
+    border-radius: 1rem !important;
+    padding: 1.5rem !important;
+    margin: 0 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+  }
+
+  /* Override inline border and color styles specifically */
+  .commonninja_component .feed-content-item[style*="border-color"],
+  .commonninja_component .sc-eyvILC.foKEno.feed-content-item[style*="border-color"],
+  .commonninja_component article.feed-content-item[style*="border-color"] {
+    border: 1px solid rgba(229, 231, 235, 0.5) !important;
+    color: inherit !important;
+  }
+
+  .dark .commonninja_component .feed-content-item {
+    background: rgba(31, 41, 55, 0.8) !important;
+    border: 1px solid rgba(75, 85, 99, 0.5) !important;
+  }
+
+  .commonninja_component .feed-content-item:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 8px 12px -4px rgba(0, 0, 0, 0.1) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+
+  .dark .commonninja_component .feed-content-item:hover {
+    background: rgba(31, 41, 55, 0.95) !important;
+  }
+
+  /* Author Section */
+  .commonninja_component .feed-content-author {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.75rem !important;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.3) !important;
+  }
+
+  .dark .commonninja_component .feed-content-author {
+    border-bottom: 1px solid rgba(75, 85, 99, 0.3) !important;
+  }
+
+  .commonninja_component .feed-content-author img {
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: cover !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    margin: 0 !important;
+  }
+
+  .commonninja_component .feed-content-author-text a {
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    text-decoration: none !important;
+  }
+
+  .dark .commonninja_component .feed-content-author-text a {
+    color: #f3f4f6 !important;
+  }
+
+  .commonninja_component .feed-content-date {
+    font-size: 0.75rem !important;
+    color: #9ca3af !important;
+    margin: 0.25rem 0 0 0 !important;
+  }
+
+  /* Article Titles */
+  .commonninja_component .feed-content-title {
+    margin: 0 0 1rem 0 !important;
+  }
+
+  .commonninja_component .feed-content-title a {
+    font-family: var(--font-lato) !important;
+    font-weight: 700 !important;
+    font-size: 1.125rem !important;
+    line-height: 1.4 !important;
+    color: #1f2937 !important;
+    text-decoration: none !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .dark .commonninja_component .feed-content-title a {
+    color: #f9fafb !important;
+  }
+
+  .commonninja_component .feed-content-title a:hover {
+    color: #0ea5e9 !important;
+  }
+
+  /* Article Content/Description */
+  .commonninja_component .feed-content-description {
+    margin-bottom: 1rem !important;
+  }
+
+  .commonninja_component .feed-content-description > div {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+    color: #6b7280 !important;
+    margin-bottom: 0.75rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .dark .commonninja_component .feed-content-description > div {
+    color: #d1d5db !important;
+  }
+
+  /* Read More Button */
+  .commonninja_component .read-more-button {
+    display: inline-block !important;
+    background: linear-gradient(135deg, #0ea5e9, #8b5cf6) !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 0.5rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+  }
+
+  .commonninja_component .read-more-button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4) !important;
+    color: white !important;
+  }
+
+  /* Article Thumbnails */
+  .commonninja_component .feed-content-thumbnail {
+    display: block !important;
+    margin: 1rem 0 !important;
+    border-radius: 0.75rem !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .commonninja_component .feed-content-thumbnail img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  .commonninja_component .feed-content-thumbnail:hover img {
+    transform: scale(1.05) !important;
+  }
+
+  /* Feed Footer and Activity */
+  .commonninja_component .feed-footer {
+    margin-top: 1rem !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid rgba(229, 231, 235, 0.3) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .dark .commonninja_component .feed-footer {
+    border-top: 1px solid rgba(75, 85, 99, 0.3) !important;
+  }
+
+  .commonninja_component .feed-content-activity {
+    display: flex !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+
+  .commonninja_component .activity-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    color: #9ca3af !important;
+    font-size: 0.75rem !important;
+    text-decoration: none !important;
+  }
+
+  .commonninja_component .activity-item:hover {
+    color: #0ea5e9 !important;
+  }
+
+  /* Share Button */
+  .commonninja_component .feed-content-social-share {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    background: transparent !important;
+    border: 1px solid rgba(229, 231, 235, 0.5) !important;
+    color: #6b7280 !important;
+    padding: 0.5rem 0.75rem !important;
+    border-radius: 0.5rem !important;
+    font-size: 0.75rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .dark .commonninja_component .feed-content-social-share {
+    border: 1px solid rgba(75, 85, 99, 0.5) !important;
+    color: #9ca3af !important;
+  }
+
+  .commonninja_component .feed-content-social-share:hover {
+    background: rgba(14, 165, 233, 0.1) !important;
+    border-color: #0ea5e9 !important;
+    color: #0ea5e9 !important;
+  }
+
+  /* Force better spacing overall */
+  .rss-feed-custom-wrapper .commonninja_component {
+    padding: 1rem !important;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .rss-feed-custom-wrapper .feed-content-wrapper.flow-layout,
+    .commonninja_component .feed-content-wrapper.flow-layout {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      gap: 1.5rem !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .rss-feed-custom-wrapper .feed-content-wrapper.flow-layout,
+    .commonninja_component .feed-content-wrapper.flow-layout {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+    }
+    
+    .commonninja_component .feed-content-item {
+      padding: 1rem !important;
+    }
+
+    .commonninja_component .feed-content-thumbnail img {
+      height: 150px !important;
+    }
+
+    .commonninja_component .feed-footer {
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+      align-items: flex-start !important;
+    }
+    
+    .rss-feed-custom-wrapper .commonninja_component {
+      padding: 0.5rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .rss-feed-custom-wrapper .feed-content-wrapper.flow-layout,
+    .commonninja_component .feed-content-wrapper.flow-layout {
+      gap: 0.75rem !important;
+    }
   }
 }
