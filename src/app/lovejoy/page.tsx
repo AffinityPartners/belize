@@ -150,10 +150,12 @@ export default function LovejoyPage() {
               <div className="grid grid-cols-4 gap-3 h-[520px] rounded-3xl overflow-hidden shadow-2xl border border-white/20">
                 {/* Main Hero Image - Takes up more space */}
                 <div className="col-span-2 relative group cursor-pointer" onClick={() => openLightbox(getImageIndex(0))}>
-                  <img 
+                  <Image 
                     src={propertyImages[0].src} 
                     alt={propertyImages[0].alt}
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-all duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20" />
@@ -175,10 +177,12 @@ export default function LovejoyPage() {
                 {/* Secondary Images - Column 1 */}
                 <div className="flex flex-col gap-2">
                   <div className="relative group overflow-hidden cursor-pointer flex-1" onClick={() => openLightbox(getImageIndex(1))}>
-                    <img 
+                    <Image 
                       src={propertyImages[1].src} 
                       alt={propertyImages[1].alt}
-                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover transition-all duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-teal-500/40 to-primary-500/40 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300" />
@@ -189,10 +193,12 @@ export default function LovejoyPage() {
                     </div>
                   </div>
                   <div className="relative group overflow-hidden cursor-pointer flex-1" onClick={() => openLightbox(getImageIndex(2))}>
-                    <img 
+                    <Image 
                       src={propertyImages[2].src} 
                       alt={propertyImages[2].alt}
-                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover transition-all duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-coral-500/40 to-sunset-500/40 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300" />
@@ -207,10 +213,12 @@ export default function LovejoyPage() {
                 {/* Secondary Images - Column 2 */}
                 <div className="flex flex-col gap-2">
                   <div className="relative group overflow-hidden cursor-pointer flex-1" onClick={() => openLightbox(getImageIndex(3))}>
-                    <img 
+                    <Image 
                       src={propertyImages[3].src} 
                       alt={propertyImages[3].alt}
-                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover transition-all duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-gold-500/40 to-coral-500/40 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300" />
@@ -221,10 +229,12 @@ export default function LovejoyPage() {
                     </div>
                   </div>
                   <div className="relative group overflow-hidden cursor-pointer flex-1" onClick={() => openLightbox(0)}>
-                    <img 
+                    <Image 
                       src={propertyImages[4].src} 
                       alt={propertyImages[4].alt}
-                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover transition-all duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                       <div className="text-center transform group-hover:scale-105 transition-transform duration-300">
@@ -256,10 +266,12 @@ export default function LovejoyPage() {
               <div className="space-y-3">
                 {/* Main hero image */}
                 <div className="relative h-64 rounded-xl overflow-hidden shadow-lg cursor-pointer" onClick={() => openLightbox(getImageIndex(0))}>
-                  <img 
+                  <Image 
                     src={propertyImages[0].src} 
                     alt={propertyImages[0].alt}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white">
@@ -276,10 +288,12 @@ export default function LovejoyPage() {
                 <div className="grid grid-cols-2 gap-3">
                   {propertyImages.slice(1, 5).map((image, index) => (
                     <div key={index} className="relative h-32 rounded-lg overflow-hidden cursor-pointer" onClick={() => openLightbox(getImageIndex(index + 1))}>
-                      <img 
+                      <Image 
                         src={image.src} 
                         alt={image.alt}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="50vw"
+                        className="object-cover"
                       />
                       {index === 3 && (
                         <div className="absolute inset-0 bg-black/60 flex items-center justify-center">

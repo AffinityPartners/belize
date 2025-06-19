@@ -16,7 +16,7 @@ const featuredActivities = [
   },
   {
     title: 'Hol Chan Marine Reserve',
-    description: 'Snorkel in Belize\'s first marine reserve, home to vibrant coral reefs and an abundance of tropical fish.',
+    description: 'Snorkel in Belize&apos;s first marine reserve, home to vibrant coral reefs and an abundance of tropical fish.',
     duration: 'Half Day',
     difficulty: 'Beginner',
     image: '🐠',

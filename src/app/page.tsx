@@ -199,7 +199,7 @@ export default function Home() {
               Luxury Color Harmony
             </Typography>
             <Typography variant="body" className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Our carefully curated color palette inspired by Belize's natural beauty
+              Our carefully curated color palette inspired by Belize&apos;s natural beauty
             </Typography>
           </div>
 
