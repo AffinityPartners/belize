@@ -106,28 +106,28 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Custom scrollbar */
+  /* Custom scrollbar with island luxury theme */
   ::-webkit-scrollbar {
     width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
+    background: linear-gradient(180deg, rgba(20, 184, 166, 0.1), rgba(232, 117, 92, 0.1));
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted-foreground));
+    background: linear-gradient(180deg, #14b8a6, #e8755c);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--foreground));
+    background: linear-gradient(180deg, #0d9488, #d85a3f);
   }
 
-  /* Selection styles */
+  /* Selection styles with island luxury colors */
   ::selection {
-    background: hsl(var(--primary) / 0.2);
-    color: hsl(var(--primary-foreground));
+    background: rgba(20, 184, 166, 0.2);
+    color: #0f766e;
   }
 
   /* Loading states */
@@ -135,20 +135,35 @@
     @apply animate-pulse;
   }
 
-  /* Glass morphism utility */
+  /* Enhanced glass morphism utilities */
   .glass {
-    backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
 
   .glass-dark {
-    backdrop-filter: blur(12px);
-    background: rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 
-  /* Animations */
+  .glass-luxury {
+    backdrop-filter: blur(20px);
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.2), 
+      rgba(20, 184, 166, 0.1), 
+      rgba(232, 117, 92, 0.1)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  /* Island luxury animations */
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -157,12 +172,65 @@
   @keyframes slideUp {
     from { 
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to { 
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(8deg); }
+    75% { transform: rotate(-8deg); }
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  @keyframes shimmerIsland {
+    0% { 
+      transform: translateX(-100%);
+      background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.4), transparent);
+    }
+    100% { 
+      transform: translateX(100%);
+      background: linear-gradient(90deg, transparent, rgba(232, 117, 92, 0.4), transparent);
+    }
+  }
+
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Luxury text effects */
+  .text-luxury-gradient {
+    background: linear-gradient(135deg, #14b8a6, #08AAF4, #e8755c, #ffd93d);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  .text-island-glow {
+    text-shadow: 
+      0 0 10px rgba(20, 184, 166, 0.5),
+      0 0 20px rgba(20, 184, 166, 0.3),
+      0 0 30px rgba(20, 184, 166, 0.2);
   }
 
   /* Reduced motion support */
@@ -174,7 +242,30 @@
     }
   }
 
-  /* RSS Feed Styling - Aggressive overrides */
+  /* Enhanced island luxury button effects */
+  .btn-island-luxury {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #14b8a6, #e8755c);
+    transition: all 0.3s ease;
+  }
+
+  .btn-island-luxury::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn-island-luxury:hover::before {
+    left: 100%;
+  }
+
+  /* RSS Feed Styling - Aggressive overrides with island luxury theme */
   .rss-feed-custom-wrapper .commonninja_component,
   .commonninja_component {
     font-family: var(--font-inter) !important;
@@ -190,7 +281,7 @@
   .rss-feed-custom-wrapper [style*="border-color"],
   .rss-feed-custom-wrapper [style*="color: rgb(0, 0, 0)"],
   .rss-feed-custom-wrapper [style*="width: 25%"] {
-    border-color: rgba(229, 231, 235, 0.5) !important;
+    border-color: rgba(20, 184, 166, 0.2) !important;
     color: #1f2937 !important;
     width: 100% !important;
   }
@@ -226,7 +317,7 @@
   .commonninja_component .feed-content-wrapper.flow-layout {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-    gap: 1.5rem !important;
+    gap: 2rem !important;
     padding: 0 !important;
     margin: 0 !important;
   }
@@ -240,121 +331,166 @@
     padding: 0 !important;
   }
 
-  /* RSS Feed Articles/Items - Multiple selectors for higher specificity */
+  /* RSS Feed Articles/Items with island luxury styling */
   .commonninja_component .feed-content-item,
   .commonninja_component .sc-eyvILC.foKEno.feed-content-item,
   .commonninja_component article.feed-content-item {
-    background: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(12px) !important;
-    border: 1px solid rgba(229, 231, 235, 0.5) !important;
-    border-radius: 1rem !important;
-    padding: 1.5rem !important;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.9), 
+      rgba(20, 184, 166, 0.05), 
+      rgba(232, 117, 92, 0.05)
+    ) !important;
+    backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(20, 184, 166, 0.2) !important;
+    border-radius: 1.5rem !important;
+    padding: 2rem !important;
     margin: 0 !important;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
-    transition: all 0.3s ease !important;
+    box-shadow: 
+      0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+      0 4px 6px -2px rgba(0, 0, 0, 0.05),
+      0 0 0 1px rgba(255, 255, 255, 0.5) inset !important;
+    transition: all 0.4s ease !important;
     overflow: hidden !important;
     cursor: pointer !important;
+    position: relative !important;
   }
 
   /* Override inline border and color styles specifically */
   .commonninja_component .feed-content-item[style*="border-color"],
   .commonninja_component .sc-eyvILC.foKEno.feed-content-item[style*="border-color"],
   .commonninja_component article.feed-content-item[style*="border-color"] {
-    border: 1px solid rgba(229, 231, 235, 0.5) !important;
+    border: 1px solid rgba(20, 184, 166, 0.3) !important;
     color: inherit !important;
   }
 
   .dark .commonninja_component .feed-content-item {
-    background: rgba(31, 41, 55, 0.8) !important;
-    border: 1px solid rgba(75, 85, 99, 0.5) !important;
+    background: linear-gradient(135deg, 
+      rgba(31, 41, 55, 0.9), 
+      rgba(20, 184, 166, 0.1), 
+      rgba(232, 117, 92, 0.1)
+    ) !important;
+    border: 1px solid rgba(20, 184, 166, 0.3) !important;
   }
 
   .commonninja_component .feed-content-item:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 8px 12px -4px rgba(0, 0, 0, 0.1) !important;
-    background: rgba(255, 255, 255, 0.95) !important;
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 
+      0 25px 50px -10px rgba(0, 0, 0, 0.2), 
+      0 10px 20px -5px rgba(20, 184, 166, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.8) inset !important;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95), 
+      rgba(20, 184, 166, 0.1), 
+      rgba(232, 117, 92, 0.1)
+    ) !important;
+    border-color: rgba(20, 184, 166, 0.4) !important;
   }
 
   .dark .commonninja_component .feed-content-item:hover {
-    background: rgba(31, 41, 55, 0.95) !important;
+    background: linear-gradient(135deg, 
+      rgba(31, 41, 55, 0.95), 
+      rgba(20, 184, 166, 0.15), 
+      rgba(232, 117, 92, 0.15)
+    ) !important;
   }
 
-  /* Author Section */
+  /* Author Section with island luxury styling */
   .commonninja_component .feed-content-author {
     display: flex !important;
     align-items: center !important;
-    gap: 0.75rem !important;
-    margin-bottom: 1rem !important;
-    padding-bottom: 0.75rem !important;
-    border-bottom: 1px solid rgba(229, 231, 235, 0.3) !important;
+    gap: 1rem !important;
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 1rem !important;
+    border-bottom: 1px solid rgba(20, 184, 166, 0.2) !important;
   }
 
   .dark .commonninja_component .feed-content-author {
-    border-bottom: 1px solid rgba(75, 85, 99, 0.3) !important;
+    border-bottom: 1px solid rgba(20, 184, 166, 0.3) !important;
   }
 
   .commonninja_component .feed-content-author img {
     border-radius: 50% !important;
-    width: 40px !important;
-    height: 40px !important;
+    width: 48px !important;
+    height: 48px !important;
     object-fit: cover !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3) !important;
+    border: 2px solid rgba(20, 184, 166, 0.2) !important;
     margin: 0 !important;
   }
 
   .commonninja_component .feed-content-author-text a {
-    font-size: 0.875rem !important;
+    font-size: 0.95rem !important;
     font-weight: 600 !important;
-    color: #374151 !important;
+    color: #0f766e !important;
     text-decoration: none !important;
+    transition: color 0.3s ease !important;
+  }
+
+  .commonninja_component .feed-content-author-text a:hover {
+    color: #14b8a6 !important;
   }
 
   .dark .commonninja_component .feed-content-author-text a {
-    color: #f3f4f6 !important;
+    color: #5eead4 !important;
+  }
+
+  .dark .commonninja_component .feed-content-author-text a:hover {
+    color: #2dd4bf !important;
   }
 
   .commonninja_component .feed-content-date {
-    font-size: 0.75rem !important;
-    color: #9ca3af !important;
+    font-size: 0.8rem !important;
+    color: #0d9488 !important;
     margin: 0.25rem 0 0 0 !important;
+    font-weight: 500 !important;
   }
 
-  /* Article Titles */
+  .dark .commonninja_component .feed-content-date {
+    color: #14b8a6 !important;
+  }
+
+  /* Article Titles with luxury styling */
   .commonninja_component .feed-content-title {
-    margin: 0 0 1rem 0 !important;
+    margin: 0 0 1.5rem 0 !important;
   }
 
   .commonninja_component .feed-content-title a {
     font-family: var(--font-lato) !important;
     font-weight: 700 !important;
-    font-size: 1.125rem !important;
+    font-size: 1.25rem !important;
     line-height: 1.4 !important;
-    color: #1f2937 !important;
+    color: #0f766e !important;
     text-decoration: none !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 3 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
+    transition: all 0.3s ease !important;
   }
 
   .dark .commonninja_component .feed-content-title a {
-    color: #f9fafb !important;
+    color: #5eead4 !important;
   }
 
   .commonninja_component .feed-content-title a:hover {
-    color: #0ea5e9 !important;
+    color: #e8755c !important;
+    text-shadow: 0 2px 8px rgba(232, 117, 92, 0.3) !important;
+  }
+
+  .dark .commonninja_component .feed-content-title a:hover {
+    color: #f09b84 !important;
   }
 
   /* Article Content/Description */
   .commonninja_component .feed-content-description {
-    margin-bottom: 1rem !important;
+    margin-bottom: 1.5rem !important;
   }
 
   .commonninja_component .feed-content-description > div {
-    font-size: 0.875rem !important;
-    line-height: 1.6 !important;
-    color: #6b7280 !important;
-    margin-bottom: 0.75rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    color: #374151 !important;
+    margin-bottom: 1rem !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 3 !important;
     -webkit-box-orient: vertical !important;
@@ -365,117 +501,173 @@
     color: #d1d5db !important;
   }
 
-  /* Read More Button */
+  /* Enhanced Read More Button with island luxury styling */
   .commonninja_component .read-more-button {
     display: inline-block !important;
-    background: linear-gradient(135deg, #0ea5e9, #8b5cf6) !important;
+    background: linear-gradient(135deg, #14b8a6, #e8755c) !important;
     color: white !important;
-    padding: 0.5rem 1rem !important;
-    border-radius: 0.5rem !important;
-    font-size: 0.875rem !important;
-    font-weight: 500 !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 0.75rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
     border: none !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .commonninja_component .read-more-button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+    transition: left 0.5s ease !important;
   }
 
   .commonninja_component .read-more-button:hover {
-    transform: translateY(-1px) !important;
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(20, 184, 166, 0.4) !important;
     color: white !important;
+    background: linear-gradient(135deg, #0d9488, #d85a3f) !important;
   }
 
-  /* Article Thumbnails */
+  .commonninja_component .read-more-button:hover::before {
+    left: 100% !important;
+  }
+
+  /* Article Thumbnails with luxury effects */
   .commonninja_component .feed-content-thumbnail {
     display: block !important;
-    margin: 1rem 0 !important;
-    border-radius: 0.75rem !important;
+    margin: 1.5rem 0 !important;
+    border-radius: 1rem !important;
     overflow: hidden !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+    position: relative !important;
+  }
+
+  .commonninja_component .feed-content-thumbnail::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(232, 117, 92, 0.1)) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    z-index: 1 !important;
+  }
+
+  .commonninja_component .feed-content-thumbnail:hover::before {
+    opacity: 1 !important;
   }
 
   .commonninja_component .feed-content-thumbnail img {
     width: 100% !important;
-    height: 200px !important;
+    height: 220px !important;
     object-fit: cover !important;
     border-radius: 0 !important;
     margin: 0 !important;
-    transition: transform 0.3s ease !important;
+    transition: transform 0.4s ease !important;
   }
 
   .commonninja_component .feed-content-thumbnail:hover img {
-    transform: scale(1.05) !important;
+    transform: scale(1.08) !important;
   }
 
-  /* Feed Footer and Activity */
+  /* Feed Footer and Activity with luxury styling */
   .commonninja_component .feed-footer {
-    margin-top: 1rem !important;
-    padding-top: 1rem !important;
-    border-top: 1px solid rgba(229, 231, 235, 0.3) !important;
+    margin-top: 1.5rem !important;
+    padding-top: 1.5rem !important;
+    border-top: 1px solid rgba(20, 184, 166, 0.2) !important;
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
   }
 
   .dark .commonninja_component .feed-footer {
-    border-top: 1px solid rgba(75, 85, 99, 0.3) !important;
+    border-top: 1px solid rgba(20, 184, 166, 0.3) !important;
   }
 
   .commonninja_component .feed-content-activity {
     display: flex !important;
-    gap: 1rem !important;
+    gap: 1.5rem !important;
     align-items: center !important;
   }
 
   .commonninja_component .activity-item {
     display: flex !important;
     align-items: center !important;
-    gap: 0.25rem !important;
-    color: #9ca3af !important;
-    font-size: 0.75rem !important;
+    gap: 0.5rem !important;
+    color: #0d9488 !important;
+    font-size: 0.8rem !important;
     text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
   }
 
   .commonninja_component .activity-item:hover {
-    color: #0ea5e9 !important;
+    color: #e8755c !important;
+    transform: translateY(-1px) !important;
   }
 
-  /* Share Button */
+  .dark .commonninja_component .activity-item {
+    color: #14b8a6 !important;
+  }
+
+  .dark .commonninja_component .activity-item:hover {
+    color: #f09b84 !important;
+  }
+
+  /* Enhanced Share Button */
   .commonninja_component .feed-content-social-share {
     display: flex !important;
     align-items: center !important;
-    gap: 0.25rem !important;
-    background: transparent !important;
-    border: 1px solid rgba(229, 231, 235, 0.5) !important;
-    color: #6b7280 !important;
-    padding: 0.5rem 0.75rem !important;
-    border-radius: 0.5rem !important;
-    font-size: 0.75rem !important;
+    gap: 0.5rem !important;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(232, 117, 92, 0.1)) !important;
+    border: 1px solid rgba(20, 184, 166, 0.3) !important;
+    color: #0d9488 !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.75rem !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
     cursor: pointer !important;
     transition: all 0.3s ease !important;
   }
 
   .dark .commonninja_component .feed-content-social-share {
-    border: 1px solid rgba(75, 85, 99, 0.5) !important;
-    color: #9ca3af !important;
+    border: 1px solid rgba(20, 184, 166, 0.4) !important;
+    color: #14b8a6 !important;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(232, 117, 92, 0.15)) !important;
   }
 
   .commonninja_component .feed-content-social-share:hover {
-    background: rgba(14, 165, 233, 0.1) !important;
-    border-color: #0ea5e9 !important;
-    color: #0ea5e9 !important;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(232, 117, 92, 0.2)) !important;
+    border-color: #14b8a6 !important;
+    color: #0f766e !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3) !important;
+  }
+
+  .dark .commonninja_component .feed-content-social-share:hover {
+    color: #2dd4bf !important;
   }
 
   /* Force better spacing overall */
   .rss-feed-custom-wrapper .commonninja_component {
-    padding: 1rem !important;
+    padding: 1.5rem !important;
   }
 
   /* Responsive Design */
   @media (max-width: 1200px) {
     .rss-feed-custom-wrapper .feed-content-wrapper.flow-layout,
     .commonninja_component .feed-content-wrapper.flow-layout {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
       gap: 1.5rem !important;
     }
   }
@@ -488,28 +680,27 @@
     }
     
     .commonninja_component .feed-content-item {
-      padding: 1rem !important;
+      padding: 1.5rem !important;
     }
 
     .commonninja_component .feed-content-thumbnail img {
-      height: 150px !important;
+      height: 180px !important;
     }
 
     .commonninja_component .feed-footer {
       flex-direction: column !important;
-      gap: 0.75rem !important;
+      gap: 1rem !important;
       align-items: flex-start !important;
     }
-    
-    .rss-feed-custom-wrapper .commonninja_component {
-      padding: 0.5rem !important;
+
+    .commonninja_component .feed-content-activity {
+      gap: 1rem !important;
     }
   }
 
   @media (max-width: 480px) {
-    .rss-feed-custom-wrapper .feed-content-wrapper.flow-layout,
-    .commonninja_component .feed-content-wrapper.flow-layout {
-      gap: 0.75rem !important;
+    .rss-feed-custom-wrapper .commonninja_component {
+      padding: 1rem !important;
     }
   }
 }

@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, forwardRef } from 'react'
 import { Slot } from '@radix-ui/react-slot'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'glass' | 'gradient'
+  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'glass' | 'gradient' | 'coral' | 'teal' | 'gold' | 'sunset'
   size?: 'default' | 'sm' | 'lg' | 'icon'
   asChild?: boolean
   loading?: boolean
@@ -25,7 +25,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         'hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-gray-500 dark:hover:bg-gray-800 dark:hover:text-gray-100': variant === 'ghost',
         'text-primary-500 underline-offset-4 hover:underline focus-visible:ring-primary-500': variant === 'link',
         'bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 shadow-lg hover:shadow-xl': variant === 'glass',
-        'bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:from-primary-600 hover:to-secondary-600 shadow-lg hover:shadow-xl': variant === 'gradient',
+        'bg-gradient-to-r from-primary-500 via-teal-500 to-coral-500 text-white hover:from-primary-600 hover:via-teal-600 hover:to-coral-600 shadow-lg hover:shadow-xl animate-gradient-x': variant === 'gradient',
+        'bg-coral-500 text-white hover:bg-coral-600 focus-visible:ring-coral-500 shadow-lg hover:shadow-xl hover:shadow-coral-500/25': variant === 'coral',
+        'bg-teal-500 text-white hover:bg-teal-600 focus-visible:ring-teal-500 shadow-lg hover:shadow-xl hover:shadow-teal-500/25': variant === 'teal',
+        'bg-gold-500 text-gray-900 hover:bg-gold-600 focus-visible:ring-gold-500 shadow-lg hover:shadow-xl hover:shadow-gold-500/25': variant === 'gold',
+        'bg-gradient-to-r from-sunset-400 via-coral-500 to-gold-500 text-white hover:from-sunset-500 hover:via-coral-600 hover:to-gold-600 shadow-lg hover:shadow-xl animate-gradient-x': variant === 'sunset',
       },
       {
         'h-10 px-4 py-2': size === 'default',

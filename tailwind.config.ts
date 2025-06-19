@@ -39,6 +39,55 @@ const config: Config = {
           800: '#4d4a7a',
           900: '#423f65',
         },
+        // Island luxury colors
+        coral: {
+          50: '#fef7f4',
+          100: '#fdeee6',
+          200: '#fadad0',
+          300: '#f6bfae',
+          400: '#f09b84',
+          500: '#e8755c',
+          600: '#d85a3f',
+          700: '#b74832',
+          800: '#973d2f',
+          900: '#7c372d',
+        },
+        teal: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6',
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+        },
+        gold: {
+          50: '#fffef7',
+          100: '#fffce8',
+          200: '#fffacd',
+          300: '#fff4a3',
+          400: '#ffec6e',
+          500: '#ffd93d',
+          600: '#f4c430',
+          700: '#d4a225',
+          800: '#b8851e',
+          900: '#9a6f1c',
+        },
+        sunset: {
+          50: '#fff8f1',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+        },
         // Semantic colors
         success: {
           50: '#ecfdf5',
@@ -130,6 +179,8 @@ const config: Config = {
         'float': 'float 3s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
         'shimmer': 'shimmer 2s linear infinite',
+        'wave': 'wave 2.5s ease-in-out infinite',
+        'breathe': 'breathe 4s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -209,6 +260,15 @@ const config: Config = {
         shimmer: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' },
+        },
+        wave: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(5deg)' },
+          '75%': { transform: 'rotate(-5deg)' },
+        },
+        breathe: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.05)' },
         },
       },
       backdropBlur: {
